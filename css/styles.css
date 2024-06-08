@@ -1,0 +1,209 @@
+/* Including google fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&display=swap');
+:root {
+    --text-font: 'Poppins', sans-serif;
+    --heading-title: 'Barlow Condensed', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Adjusting image to be responsive */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Global styles */
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    gap: 0.1rem;
+}
+
+.photo__container {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 40px;
+    gap: 8px;
+    inset: 0;
+    filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
+    background: linear-gradient( 180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    transition: background 0.5s ease;
+}
+
+.img__box {
+    width: 293px;
+    height: 588px;
+    overflow: hidden;
+}
+
+.photo {
+    object-fit: cover;
+    height: 100%;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    color: #fff;
+    padding: 0px;
+    gap: 8px;
+    width: 213px;
+    height: 100px;
+    transition: transform 0.5s ease;
+}
+
+.info__title {
+    font-family: var(--heading-title);
+    font-size: 37px;
+    line-height: 38px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.info__location,
+a {
+    font-family: var(--text-font);
+    font-weight: 300;
+    font-size: 0.75rem;
+    text-transform: capitalize;
+}
+
+a {
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: #09c8e9;
+    font-weight: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+
+/* Hove effect */
+
+.overlay:hover {
+    background: linear-gradient( 180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+.photo__container:hover .photo {
+    transform: scale(1.1);
+    filter: blur(5px) grayscale(100%);
+}
+
+
+/* Move the title up by 10px on hover */
+
+.photo__container:hover .info {
+    transform: translateY(-10px);
+}
+
+.photo__container:hover a {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Modal styles */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.932);
+}
+
+.modal__container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 520px;
+}
+
+.modal__container,
+#caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Responsive styles */
+
+@media (max-width: 600px) {
+    .img__box {
+        width: 100%;
+    }
+    .overlay .info,
+    .overlay a {
+        display: none;
+    }
+}
