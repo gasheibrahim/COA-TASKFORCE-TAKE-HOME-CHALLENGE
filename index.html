@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Photo gallery</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="gallery">
+            <div class="photo__container" data-title="fennec fox" data-location="India">
+                <div class="img__box">
+                    <img src="./img/img4.jpeg" alt="image of nature" class="photo" decoding="async" loading="lazy">
+                </div>
+                <div class="overlay">
+                    <div class="info">
+                        <h1 class="info__title">fennec <br>fox</h1>
+                        <span class="info__location">India</span>
+                    </div>
+                    <a href="#">Know more &RightArrow;</a>
+                </div>
+            </div>
+            <div class="photo__container" data-title="humpback whale" data-location="South Africa">
+                <div class="img__box">
+                    <img src="./img/img2.jpeg" alt="image of nature" class="photo" decoding="async" loading="lazy">
+                </div>
+                <div class="overlay">
+                    <div class="info">
+                        <h1 class="info__title">humpback <br>whale</h1>
+                        <span class="info__location">South africa</span>
+                    </div>
+                    <a href="#">Know more &RightArrow;</a>
+                </div>
+            </div>
+            <!--  -->
+            <div class="photo__container" data-title="Common brown baboon" data-location="South Africa">
+                <div class="img__box">
+                    <img src="./img/img1.jpeg" alt="image of nature" class="photo" decoding="async" loading="lazy">
+                </div>
+                <div class="overlay">
+                    <div class="info">
+                        <h1 class="info__title">common brown <br>baboon</h1>
+                        <span class="info__location">South africa</span>
+                    </div>
+                    <a href="#">Know more &RightArrow;</a>
+                </div>
+            </div>
+            <!--  -->
+            <div class="photo__container" data-title="Spotted deer" data-location="Amazon">
+                <div class="img__box">
+                    <img src="./img/img3.jpeg" alt="image of nature" class="photo" decoding="async" loading="lazy">
+                </div>
+                <div class="overlay">
+                    <div class="info">
+                        <h1 class="info__title">spotted <br>deer</h1>
+                        <span class="info__location">Amazon</span>
+                    </div>
+                    <a href="#">Know more &RightArrow;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/scripts.js" defer></script>
+
+
+    <!-- Modal for larger image view -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal__container">
+            <img id="modalImage">
+        </div>
+    </div>
+</body>
+
+</html>
